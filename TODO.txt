@@ -1,0 +1,8 @@
+TMUX
+- update color scheme
+- determine if reattach-to-user-namespace is necessary
+
+VIM
+- update to not need neovim
+- update to let `jk` be escape sequence
+
