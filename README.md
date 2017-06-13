@@ -5,11 +5,19 @@ chsh -s $(which zsh) # using system zsh because its currently same version as br
 
 brew install stow
 brew install tmux
+brew install chruby
+brew install ruby-install
+
+ruby-install ruby 2.3.1
 
 brew tap d12frosted/emacs-plus
 brew install emacs-plus
 brew linkapps emacs-plus
 
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ```
 
