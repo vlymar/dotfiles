@@ -37,7 +37,6 @@ setopt share_history # share command history data
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
-
 export HOMEBREW_NO_ANALYTICS=1
 
 #export PGDATA="/usr/local/var/postgres93"
@@ -46,7 +45,7 @@ export HOMEBREW_NO_ANALYTICS=1
 #alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 #alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim -w ~/sout.txt'
 
-alias vim='nvim'
+# alias vim='nvim'
 
 ## Git Aliases
 alias glol="git log --pretty=oneline"
@@ -74,32 +73,6 @@ alias cms_follower="ssh -i ~/.ssh/geoapi-screendoor-prod-app-2.pem ec2-user@cms_
 
 alias space="emacs & disown"
 
-source ~/.bin/tmuxinator.zsh
-
-# c - browse chrome history
-c() {
-  local cols sep
-  cols=$(( COLUMNS / 3 ))
-  sep='{::}'
-
-  cp -f ~/Library/Application\ Support/Google/Chrome/Default/History /tmp/h
-
-  sqlite3 -separator $sep /tmp/h \
-    "select substr(title, 1, $cols), url
-     from urls order by last_visit_time desc" |
-  awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
-  fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open
-}
-
-# v - open files in ~/.viminfo
-v() {
-  local files
-  files=$(grep '^>' ~/.viminfo | cut -c3- |
-  while read line; do
-    [ -f "${line/\~/$HOME}" ] && echo "$line"
-  done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
-}
-
 # fuzzy multi-select modified file
 gfmod() {
   git ls-files -m | fzf -m
@@ -110,13 +83,13 @@ gfadd() {
   git add $(gfmod)
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #eval "$(docker-machine env default)"
 #
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# this shit is slow
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# # this shit is slow
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
