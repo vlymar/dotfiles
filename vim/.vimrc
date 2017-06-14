@@ -170,121 +170,6 @@ set switchbuf=useopen        " when switching buffers, switch to open window tha
 set updatetime=750
 set lazyredraw               " dont redraw screen when executing untyped commands (like macros)
 
-
-" " Helper Functions ###############################
-" function! PluginLoaded(plugin)
-"   if a:plugin == "vim-plug"
-"     return exists("$HOME/.vim/autoload/plug.vim")
-"   else
-"     return &rtp =~ a:plugin
-"   endif
-" endfunction
-" 
-" function! NumberToggle()
-"   if (&relativenumber == 1)
-"     set nocursorline
-"     set norelativenumber
-"     set number
-"   else
-"     set nonumber
-"     set relativenumber
-"     set cursorline
-"   endif
-" endfunction
-" 
-" function! GenerateSnapshot()
-"   " TODO: Template this
-"   let directory = expand('~/dotfiles/snapshots')
-"   call system('mkdir -p ' . directory)
-"   let date = strftime("%Y-%m-%d")
-"   let new_count = substitute(substitute(system('ls ' . directory . ' | grep ' . date . ' | wc -l'), '[^0-9]*', '', ''), '\v\n', '', '') + 1
-"   let file_name = directory . '/' . date . '-' . new_count . '.sh'
-" 
-"   execute 'PlugSnapshot ' . file_name
-" endfunction
-" 
-" function! s:try(cmd, default)
-"   if exists(':' . a:cmd) && !v:count
-"     let tick = b:changedtick
-"     execute a:cmd
-"     if tick == b:changedtick
-"       execute join(['normal!', a:default])
-"     endif
-"   else
-"     execute join(['normal! ', v:count, a:default], '')
-"   endif
-" endfunction
-" 
-" function! Help()
-"   if &buftype == 'help'
-"     wincmd T
-"     nnoremap <buffer> q :q<CR>
-"   endif
-" endfunction
-" 
-" function! WriteQAFile(host, target, number)
-"   let file = bufname('%')
-"   execute "write scp://deploy@" . a:host . "//var/www/apps/" . a:target . "/" . a:number . "/current/" . file
-" endfunction
-
-" " Plugin Related Config ###################################
-" " Neomake
-" let g:neomake_ruby_enabled_makers = ['mri']
-" let g:neomake_open_list           = 0
-
-" " Neomake errors
-" if PluginLoaded('neomake')
-"   nnoremap <Leader>e :Neomake<CR>:lopen<CR>
-" 
-"   " don't want to do autocmd unless its async
-"   if has('nvim')
-"     augroup Neomake
-"       autocmd!
-"       autocmd BufWritePost *.rb Neomake
-"     augroup END
-"   endif
-" endif
-" 
-" " TODO: which plugin? (and what is this)
-" let g:qf_mapping_ack_style = 1
-" 
-" " Quickscope
-" " Only enable quick-scope after f/F/t/T
-" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-" 
-" " Autopairs
-" " AutoPairs binds to Meta by default for whatever reason, we don't want that on OSX
-" let g:AutoPairsShortcutFastWrap = '<C-e>'
-" 
-" 
-" " Vimux
-" " Global variable for Vimux test pane
-" let g:vs_open = 0
-" 
-" " Undotree
-" if PluginLoaded('undotree')
-"   nnoremap <Leader>u :UndotreeToggle<CR>
-" endif
-" 
-" " Easily make changes to vimrc
-" if PluginLoaded('vim-plug')
-"   nnoremap <Leader>R :mapclear!<CR>:so ~/.vimrc<CR>:PlugInstall<CR>
-"   nnoremap <Leader>U :PlugUpdate<CR>:PlugClean<CR>
-"   nnoremap <Leader>S :call GenerateSnapshot()<CR>
-" else
-"   nnoremap <Leader>R :mapclear!<CR>:so ~/.vimrc<CR>
-" endif
-" 
-" " FZF
-" if PluginLoaded('fzf')
-"   nnoremap <C-p> :FZF<CR>
-" endif
-" 
-" " For fuzzy finding thru buffers
-" if PluginLoaded('fzf.vim')
-"   nnoremap <Leader><Tab> :Buffers<CR>
-" endif
-" 
 " " vim-fugitive
 " if PluginLoaded('fugitive')
 "   nnoremap <Leader>gb :Gblame<CR>
@@ -299,59 +184,6 @@ set lazyredraw               " dont redraw screen when executing untyped command
 "   nnoremap <Leader>gf :GitFiles<CR>
 "   nnoremap <Leader>gh :BCommits<CR>
 " endif
-" 
-" " Syntastic
-" if PluginLoaded('syntastic')
-"   nnoremap <Leader>e :SyntasticCheck<CR>:Errors<CR>
-" endif
-" 
-" " Vim-Surround
-" if PluginLoaded('vim-surround')
-"  " The 'y' mnemonic doesn't really make much sense
-"  " and we can use the default `s` bind with `cl`
-"  nmap s  <Plug>Ysurround
-"  nmap S  <Plug>YSurround
-"  nmap ss <Plug>Yssurround
-"  nmap SS <Plug>YSsurround
-" endif
-" 
-" " vim-ruby
-" " TODO: update for chruby
-" let g:ruby_path = system('rvm current')
-" let ruby_operators = 1
-" let ruby_no_expensive = 1  " they promised speed
-" 
-" " vim-peekaboo
-" if PluginLoaded('vim-peekaboo')
-"   " Default peekaboo window
-"   " let g:peekaboo_window = 'vertical botright 30new'
-" 
-"   " Delay opening of peekaboo window (in ms. default: 0)
-"   let g:peekaboo_delay = 250
-"   "
-"   " Compact display; do not display the names of the register groups
-"   " let g:peekaboo_compact = 0
-" " "
-" endif
-" 
-" " vim-racer
-" if PluginLoaded('vim-racer')
-"  let g:racer_cmd = "/Users/victor/.cargo/bin/racer"
-"  let $RUST_SRC_PATH="/Users/victor/code/rust/src"
-" endif
-" 
-" if PluginLoaded('vim-dispatch')
-"   nnoremap <leader>m :Dispatch<CR>
-"   nnoremap <leader>M :Dispatch!<CR>
-" 
-"   autocmd FileType rust let b:dispatch = 'cargo build'
-"   autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
-" 
-"   if executable('grip')
-"     autocmd FileType markdown let b:dispatch = 'grip %'
-"   endif
-" endif
-
 
 " Custom Keybinds #################################
 " exit insert mode with jk
@@ -392,8 +224,10 @@ xnoremap <F2> <NOP>
 " close current buf and open prev buf in its place
 nmap <leader>d :bp \| :bd #<CR>
 
+""""DANGER
 " easily get rid of search highlights
-noremap <Esc> :noh<CR><Esc>
+" noremap <Esc> :noh<CR><Esc>
+"""""
 
 " Switch to last active buffer
 noremap <Leader><Space> :buffer #<CR>
@@ -449,47 +283,11 @@ xnoremap < <gv
 
 nnoremap <Leader>l :echo line('.') . "/" . line('$')<CR>
 
+augroup NoPaste
+  autocmd!
+  autocmd InsertLeave * set nopaste
+augroup END
 
-" " Kill arrows
-" for modeprefix in ['i', 'n', 'v']
-"   for arrowkey in ['<Up>', '<Down>', '<Left>', '<Right>']
-"     execute modeprefix . "noremap " . arrowkey . " <Nop>"
-"   endfor
-" endfor
-" 
-" nnoremap <Leader>bqa :call WriteQAFile("olap-qa01.lo", "besar-qa", "10")<CR>
-" nnoremap <Leader>qa :call WriteQAFile(g:default_qa_host, g:default_qa_target, g:default_qa_number)<CR>
-
-" " Custom Config settings ##########################
-" " remote qa editing woo!
-" let g:default_qa_host = "qa-host02.lo"
-" let g:default_qa_target = "qa"
-" let g:default_qa_number = "10"
-" 
-" " abbreviations for the lazy
-" iabbr dpw DataPipe::Worker
-" iabbr dpjr DataPipe::Jenkins::Recovery
-" iabbr dpc DataPipe::ConfigParser
-" iabbr dpdg DataPipe::DependencyGraph
-" 
-" " Integrations #############################
-" if executable('ag')
-"   " Integrate with Ag
-"   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column\ --vimgrep
-"   set grepformat=%f:%l:%c:%m,%f:%l:%m
-" 
-"   if PluginLoaded('vim-grepper')
-"     nmap gs  <plug>(GrepperOperator)
-"     xmap gs  <plug>(GrepperOperator)
-" 
-"     nnoremap <Leader>s :Grepper -noswitch -tool ag -query '\b<C-r><C-w>\b'<CR>
-"     nnoremap <Leader>ag :Grepper -tool ag -query ''<Left>
-"     command! -nargs=* Ag Grepper -tool ag -query <args>
-"     command! Grep Grepper -tool ag
-"     command! GRep Grep
-"   endif
-" endif
-" 
 " " Otherwise vim will get nasty escape codes
 " if has('mac') && ($TERM == 'xterm-256color' || $TERM == 'screen-256color')
 "   map <Esc>OP <F1>
@@ -505,23 +303,7 @@ nnoremap <Leader>l :echo line('.') . "/" . line('$')<CR>
 "   map <Esc>[23~ <F11>
 "   map <Esc>[24~ <F12>
 " endif
-" 
-" " Custom Command Definitions ####################
-" " Debug colours
-" command! SS echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-" 
-" " Because shift is hard to let go of okay
-" command! Wq wq
-" command! WQ wq
-" command! W w
-" command! Q q
-" 
-" " Autocmds ######################################
-" augroup NoPaste
-"   autocmd!
-"   autocmd InsertLeave * set nopaste
-" augroup END
-" 
+
 " augroup FileTypeSettings
 "   autocmd!
 "   autocmd FileType html setlocal ts=2 sw=2 expandtab
@@ -548,31 +330,3 @@ nnoremap <Leader>l :echo line('.') . "/" . line('$')<CR>
 "   autocmd FileType gitcommit setlocal spell
 "   autocmd FileType text setlocal spell
 " augroup END
-" 
-" augroup VimHelp
-"   autocmd!
-"   autocmd BufEnter *.txt call Help()
-" augroup END
-" 
-" augroup Tests
-"   autocmd!
-" " run spring rspec for current_file:cursor_line_num
-"   autocmd FileType ruby nnoremap <Leader>tt :execute "!bundle exec spring rspec " . expand('%') . ':' . line('.')<CR>
-" 
-"   autocmd FileType go nnoremap <Leader>tt :GoTest<CR>
-" augroup END
-" 
-" augroup LongLines
-"   autocmd!
-"   autocmd BufEnter *.rb highlight OverLength ctermbg=darkgrey guibg=#111111
-"   autocmd BufEnter *.rb match OverLength /\%80v.*/
-" augroup END
-
-" " Just killmyself
-" noremap h <NOP>
-" noremap j <NOP>
-" noremap k <NOP>
-" noremap l <NOP>
-
-
-
