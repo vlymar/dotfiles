@@ -1,4 +1,4 @@
-# export PATH="/Users/victor/bin:$PATH"
+export PATH="/Users/victor/bin:$PATH"
 #export PATH="/Applications/Tunnelblick.app/Contents/Resources/openvpn/openvpn-2.3.14-openssl-1.0.2j/:$PATH"
 
 export BOXEN_SOCKET_DIR="/tmp"
