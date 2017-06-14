@@ -7,6 +7,8 @@ brew install stow
 brew install tmux
 brew install chruby
 brew install ruby-install
+brew install ag
+brew install gdb
 
 ruby-install ruby 2.3.1
 

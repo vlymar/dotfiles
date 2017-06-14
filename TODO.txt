@@ -6,3 +6,4 @@ VIM
 - update to not need neovim
 - update to let `jk` be escape sequence
 
+- Investigate tiling window manager
