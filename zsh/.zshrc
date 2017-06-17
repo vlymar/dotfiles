@@ -35,17 +35,7 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history # share command history data
 
-export FZF_DEFAULT_COMMAND='ag -g ""'
-
 export HOMEBREW_NO_ANALYTICS=1
-
-#export PGDATA="/usr/local/var/postgres93"
-
-## NeoVim Aliases (24bit color)
-#alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
-#alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim -w ~/sout.txt'
-
-# alias vim='nvim'
 
 ## Git Aliases
 alias glol="git log --pretty=oneline"
@@ -73,24 +63,11 @@ alias cms_follower="ssh -i ~/.ssh/geoapi-screendoor-prod-app-2.pem ec2-user@cms_
 
 alias space="emacs & disown"
 
-# fuzzy multi-select modified file
-gfmod() {
-  git ls-files -m | fzf -m
-}
-
-# stage files multi-selected modified files
-gfadd() {
-  git add $(gfmod)
-}
-
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#eval "$(docker-machine env default)"
-#
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # # this shit is slow
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 eval "$(rbenv init -)"
