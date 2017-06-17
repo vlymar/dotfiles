@@ -5,10 +5,8 @@ chsh -s $(which zsh) # using system zsh because its currently same version as br
 
 brew install stow
 brew install tmux
-brew install chruby
-brew install ruby-install
 brew install ag
-brew install gdb
+brew install go
 
 ruby-install ruby 2.3.1
 

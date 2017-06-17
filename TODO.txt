@@ -3,7 +3,11 @@ TMUX
 - determine if reattach-to-user-namespace is necessary
 
 VIM
-- update to not need neovim
 - update to let `jk` be escape sequence
 
+RUBY
+- decide between rbenv and chruby
+
+macOS
 - Investigate tiling window manager
+  - chunkwm looks cool
