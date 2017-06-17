@@ -67,7 +67,7 @@ values."
      org
      (ruby :variables
            ;;ruby-enable-enh-ruby-mode t
-           ruby-version-manager 'chruby)
+           ruby-version-manager 'rbenv)
      ruby-on-rails
      (shell :variables
             shell-default-height 30
@@ -89,7 +89,7 @@ values."
    ;; A list of packages that will not be installed and loaded.
    ;; Company is the autocompletion package for emacs. I've disabled it because robe-company
    ;; keeps freezing emacs up while it tries to contact the ruby process.
-   dotspacemacs-excluded-packages '(org-tbl)
+   dotspacemacs-excluded-packages '()
    ;; dotspacemacs-excluded-packages '(company)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -106,9 +106,6 @@ This function is called at the very startup of Spacemacs initialization
 before layers configuration.
 You should not put any user code in there besides modifying the variable
 values."
-  ;; fixes super annoying bug where hitting ESC triggers autocomplete
-  ;; https://github.com/olivierverdier/spacemacs-coq/issues/14#issuecomment-302701676
-  (setq evil-want-abbrev-expand-on-insert-exit nil)
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -335,6 +332,11 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq tab-always-indent t)
+
+  ;; fixes super annoying bug where hitting ESC triggers autocomplete
+  ;; https://github.com/olivierverdier/spacemacs-coq/issues/14#issuecomment-302701676
+  (setq evil-want-abbrev-expand-on-insert-exit nil)
   )
 
 (defun dotspacemacs/user-config ()
@@ -346,6 +348,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (setq markdown-hide-urls nil)
+
 
   (setq-default evil-escape-key-sequence "jk")
   ;; (setq-default evil-escape-delay 0.2)
