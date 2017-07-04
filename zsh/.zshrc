@@ -46,10 +46,14 @@ alias tls="tmux list-sessions"
 
 # Rails Aliases
 alias rc="bin/rails console"
-alias ss="script/server"
-alias pss="RAILS_ENV=profile script/server"
 alias dbconsole="bundle exec rails dbconsole"
 alias resetdb="bundle exec rake db:reset"
+
+## DOBT Aliases
+alias ss="script/server"
+alias pss="RAILS_ENV=profile script/server"
+alias godobt="cd ~/src/dobt"
+alias gosd="cd ~/src/dobt/screendoor-v2/"
 
 # c66 aliases
 alias cxlist="cx servers list -s \"screendoor-v2-aws\" -e \"production\""
