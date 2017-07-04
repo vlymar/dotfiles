@@ -1,4 +1,12 @@
 # Install
+
+Option A (if Brewfile exists)
+```shell
+brew tap Homebrew/bundle
+brew bundle --global
+```
+
+Option B (if Brewfile exists)
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 chsh -s $(which zsh) # using system zsh because its currently same version as brew zsh
@@ -7,8 +15,8 @@ brew install stow
 brew install tmux
 brew install ag
 brew install go
-
-ruby-install ruby 2.3.1
+brew install node
+brew install watchman # react native docs recommend this
 
 brew tap d12frosted/emacs-plus
 brew install emacs-plus
@@ -18,7 +26,6 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 ```
 
 # Stow
