@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -42,7 +43,7 @@ values."
      ;; slack
      ;; xkcd
      ;; dash
-     ;; restclient
+     restclient
      ;; spell-checking
 
      html
@@ -50,6 +51,9 @@ values."
      sql
      nginx
      javascript
+
+     clojure
+     csharp
 
      (auto-completion :variables
                       auto-completion-tab-key-behavior nil)
@@ -378,6 +382,9 @@ you should place your code here."
   (setq ruby-insert-encoding-magic-comment nil)
   (setq enh-ruby-add-encoding-comment-on-save nil)
 
+  ;; prolly not the right way to do this but :shrug:
+  (setq css-indent-offset 2)
+
   ;; This is supposed to enable accessing the debugger from rails server
   ;; I haven't gotten this working yet
   ;; Note: To disable read only mode - C-x C-q
@@ -414,12 +421,36 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+ '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (powerline pcre2el spinner parent-mode flx iedit anzu goto-chg undo-tree bind-map bind-key pkg-info epl popup restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well rjsx-mode tide typescript-mode winum projectile request fuzzy flycheck-credo diminish packed avy highlight smartparens evil helm helm-core async hydra f dash s go-guru go-eldoc company-go go-mode alchemist haml-mode web-completion-data ob-elixir flycheck-mix elixir-mode sql-indent nginx-mode dockerfile-mode docker tablist docker-tramp web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode evil-snipe imenu-list slack emojify circe oauth2 websocket ht reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl inflections org alert log4e gntp markdown-mode gitignore-mode fringe-helper git-gutter+ git-gutter pos-tip flycheck magit magit-popup git-commit with-editor company yasnippet auto-complete rake inf-ruby wgrep smex ivy-hydra counsel-projectile counsel swiper ivy yaml-mode xterm-color ws-butler window-numbering which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spotify spacemacs-theme spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rainbow-delimiters quelpa pug-mode projectile-rails popwin persp-mode paradox orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file noflet neotree multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-spotify helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ensime enh-ruby-mode emmet-mode elisp-slime-nav dumb-jump diff-hl define-word company-web company-statistics column-enforce-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (csv-mode omnisharp shut-up csharp-mode clojure-snippets clj-refactor edn paredit peg cider-eval-sexp-fu cider seq queue clojure-mode powerline pcre2el spinner parent-mode flx iedit anzu goto-chg undo-tree bind-map bind-key pkg-info epl popup restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well rjsx-mode tide typescript-mode winum projectile request fuzzy flycheck-credo diminish packed avy highlight smartparens evil helm helm-core async hydra f dash s go-guru go-eldoc company-go go-mode alchemist haml-mode web-completion-data ob-elixir flycheck-mix elixir-mode sql-indent nginx-mode dockerfile-mode docker tablist docker-tramp web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode evil-snipe imenu-list slack emojify circe oauth2 websocket ht reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl inflections org alert log4e gntp markdown-mode gitignore-mode fringe-helper git-gutter+ git-gutter pos-tip flycheck magit magit-popup git-commit with-editor company yasnippet auto-complete rake inf-ruby wgrep smex ivy-hydra counsel-projectile counsel swiper ivy yaml-mode xterm-color ws-butler window-numbering which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spotify spacemacs-theme spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rainbow-delimiters quelpa pug-mode projectile-rails popwin persp-mode paradox orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file noflet neotree multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-spotify helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ensime enh-ruby-mode emmet-mode elisp-slime-nav dumb-jump diff-hl define-word company-web company-statistics column-enforce-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (symon string-inflection sayid ruby-refactor password-generator org-brain impatient-mode helm-purpose window-purpose godoctor go-rename evil-org evil-lion editorconfig browse-at-remote omnisharp shut-up csharp-mode clojure-snippets clj-refactor edn paredit peg cider-eval-sexp-fu cider seq queue clojure-mode powerline pcre2el spinner parent-mode flx iedit anzu goto-chg undo-tree bind-map bind-key pkg-info epl popup restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well rjsx-mode tide typescript-mode winum projectile request fuzzy flycheck-credo diminish packed avy highlight smartparens evil helm helm-core async hydra f dash s go-guru go-eldoc company-go go-mode alchemist haml-mode web-completion-data ob-elixir flycheck-mix elixir-mode sql-indent nginx-mode dockerfile-mode docker tablist docker-tramp web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode evil-snipe imenu-list slack emojify circe oauth2 websocket ht reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl inflections org alert log4e gntp markdown-mode gitignore-mode fringe-helper git-gutter+ git-gutter pos-tip flycheck magit magit-popup git-commit with-editor company yasnippet auto-complete rake inf-ruby wgrep smex ivy-hydra counsel-projectile counsel swiper ivy yaml-mode xterm-color ws-butler window-numbering which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spotify spacemacs-theme spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rainbow-delimiters quelpa pug-mode projectile-rails popwin persp-mode paradox orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file noflet neotree multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-spotify helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ensime enh-ruby-mode emmet-mode elisp-slime-nav dumb-jump diff-hl define-word company-web company-statistics column-enforce-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
