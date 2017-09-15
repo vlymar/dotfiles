@@ -28,6 +28,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+# Change shell
+`chsh -s /bin/zsh`
+
 # Stow
 This repo uses GNU Stow for handling dotfile symlinks.
 
