@@ -75,3 +75,5 @@ alias space="emacs & disown"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(rbenv init -)"
+
+[[ -s "$HOME/.work_zshrc" ]] && \. "$HOME/.work_zshrc"
