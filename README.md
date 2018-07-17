@@ -6,7 +6,7 @@ brew tap Homebrew/bundle
 brew bundle --global
 ```
 
-Option B (if Brewfile exists)
+Option B (if Brewfile doesn't exist)
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 chsh -s $(which zsh) # using system zsh because its currently same version as brew zsh
