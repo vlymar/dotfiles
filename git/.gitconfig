@@ -1,6 +1,6 @@
 [user]
-    name = vlymar
-    email = evidenceofllama@gmail.com
+    name = Victor Lymar
+    email = victor@launchdarkly.com
 [color]
     ui = auto
 [alias]
@@ -28,4 +28,6 @@
     excludesfile = ~/.global_gitignore
     editor = vim
 [push]
-    default = simple
+	default = current
+[url "git@github.com:"]
+        insteadOf = https://github.com/

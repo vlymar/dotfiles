@@ -2,8 +2,8 @@
 export PATH="$HOME/bin:$PATH"
 
 # GO
-export GOPATH="$HOME/src/go"
-export PATH="$(go env GOPATH)/bin:$PATH"
+# export GOPATH="$HOME/src/go"
+# export PATH="$(go env GOPATH)/bin:$PATH"
 
 # Ruby CTags
 alias ripper_gem_reindex="gem ripper_tags --reindex" 
