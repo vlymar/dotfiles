@@ -16,7 +16,6 @@ prompt adam2 8bit
 
 bindkey -e  # emacs mode (note: -v is vim mode)
 
-
 # History
 if [ -z "$HISTFILE" ]; then
     HISTFILE=$HOME/.zsh_history
@@ -68,11 +67,6 @@ alias cms_follower="ssh -i ~/.ssh/geoapi-screendoor-prod-app-2.pem ec2-user@cms_
 alias space="emacs & disown"
 
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# # this shit is slow
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(rbenv init -)"
 
