@@ -1,44 +1,38 @@
+# Prereq
+
+Brew must be installed.
+
 # Install
 
-Option A (if Brewfile exists)
 ```shell
-brew tap Homebrew/bundle
-brew bundle --global
-```
-
-Option B (if Brewfile doesn't exist)
-```shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-chsh -s $(which zsh) # using system zsh because its currently same version as brew zsh
-
-brew install stow
-brew install tmux
-brew install ag
-brew install go
-brew install node
-brew install watchman # react native docs recommend this
-
-brew tap d12frosted/emacs-plus
-brew install emacs-plus
-brew linkapps emacs-plus
-
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+brew bundle --file .Brewfile
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-# Change shell
-`chsh -s /bin/zsh`
 
-# Stow
-This repo uses GNU Stow for handling dotfile symlinks.
+# How this repo works
 
-`stow zsh`
+This repo uses GNU Stow for handling dotfile symlinks. After install, `stow` will symlink everything from `base/` into your home dir when you run:
 
-# Fonts
+```
+stow base
+```
+
+## Dirs:
+
+- base: dotfiles I want on all my machines
+- personal: dotfiles only intended for my personal machine
+- archive: dotfiles I no longer use but want to keep around just in case
+- assets: themes and fonts
+
+# Other resources
+## Fonts
+
 https://github.com/adobe-fonts/source-code-pro
 
-# Themes
+## Themes
+
 https://github.com/mbadolato/iTerm2-Color-Schemes
 https://github.com/junegunn/seoul256.vim

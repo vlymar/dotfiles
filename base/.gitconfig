@@ -1,6 +1,9 @@
 [user]
     name = Victor Lymar
-    email = victor@launchdarkly.com
+    email = victorslymar@gmail.com
+## when I need a work profile:
+# [includeIf "gitdir:~/work/"]
+#     path = ~/work/.gitconfig
 [color]
     ui = auto
 [alias]
@@ -29,5 +32,3 @@
     editor = vim
 [push]
 	default = current
-[url "git@github.com:"]
-        insteadOf = https://github.com/
