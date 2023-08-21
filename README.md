@@ -9,11 +9,7 @@ brew bundle --file Brewfile
 
 # make dir if it doesn't already exist
 mkdir -p ~/.config
-
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-
 
 # How this repo works
 
