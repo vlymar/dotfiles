@@ -418,6 +418,17 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 
 -- Neotree keymaps
+
+require('neo-tree').setup {
+  filesystem = {
+    filtered_items = {
+      visible = true,        -- grey out hidden things
+      hide_dotfiles = false,
+      hide_gitignored = true,
+    }
+  }
+}
+
 vim.keymap.set('n', '-', ':Neotree toggle<CR>')
 
 -- [[ Configure LSP ]]

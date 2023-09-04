@@ -9,6 +9,11 @@ prompt pure
 autoload -Uz compinit 
 compinit    # completion
 
+alias vim=nvim
+
+# activate asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
 
 #bindkey -e  # emacs mode (note: -v is vim mode)
 #
@@ -43,3 +48,4 @@ compinit    # completion
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [[ -s "$HOME/.work_zshrc" ]] && \. "$HOME/.work_zshrc"
+
