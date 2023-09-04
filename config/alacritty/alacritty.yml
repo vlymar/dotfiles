@@ -1,3 +1,6 @@
+shell:
+  program: /opt/homebrew/bin/fish
+
 import:
 - ~/.config/alacritty/themes/themes/dracula.yaml
 

@@ -41,7 +41,5 @@ alias glol="git log --pretty=oneline"
 #alias ta="tmux attach-session -t"
 #alias tls="tmux list-sessions"
 
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 [[ -s "$HOME/.work_zshrc" ]] && \. "$HOME/.work_zshrc"
 
