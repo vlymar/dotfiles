@@ -5,7 +5,7 @@ Brew must be installed.
 # Install
 
 ```shell
-brew bundle --file Brewfile
+brew bundle install --file Brewfile --no-lock
 
 # make dir if it doesn't already exist
 mkdir -p ~/.config
