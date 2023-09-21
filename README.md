@@ -1,44 +1,41 @@
+# Prereq
+
+Brew must be installed.
+
 # Install
 
-Option A (if Brewfile exists)
 ```shell
-brew tap Homebrew/bundle
-brew bundle --global
+brew bundle install --file Brewfile --no-lock
+
+# make dir if it doesn't already exist
+mkdir -p ~/.config
 ```
 
-Option B (if Brewfile doesn't exist)
+# How this repo works
+
+This repo uses GNU Stow for handling dotfile symlinks. Run these commands to set up symlinks.
+
 ```shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-chsh -s $(which zsh) # using system zsh because its currently same version as brew zsh
+stow base
 
-brew install stow
-brew install tmux
-brew install ag
-brew install go
-brew install node
-brew install watchman # react native docs recommend this
-
-brew tap d12frosted/emacs-plus
-brew install emacs-plus
-brew linkapps emacs-plus
-
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# separate command because I don't want this repo to own my whole ~/.config dir (for now at least).
+# this command just symlinks contents of config/ into an existing ~/.config dir.
+stow -S config -t ~/.config
 ```
 
-# Change shell
-`chsh -s /bin/zsh`
+## Dirs:
 
-# Stow
-This repo uses GNU Stow for handling dotfile symlinks.
+- base: dotfiles I want on all my machines
+- personal: dotfiles only intended for my personal machine (`stow personal`)
+- archive: dotfiles I no longer use but want to keep around just in case
+- assets: themes and fonts
 
-`stow zsh`
+# Other resources
+## Fonts
 
-# Fonts
 https://github.com/adobe-fonts/source-code-pro
 
-# Themes
+## Themes
+
 https://github.com/mbadolato/iTerm2-Color-Schemes
 https://github.com/junegunn/seoul256.vim

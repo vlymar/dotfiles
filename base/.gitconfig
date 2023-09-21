@@ -1,0 +1,34 @@
+[user]
+    name = Victor Lymar
+    email = victorslymar@gmail.com
+## when I need a work profile:
+# [includeIf "gitdir:~/work/"]
+#     path = ~/work/.gitconfig
+[color]
+    ui = auto
+[alias]
+    s = status
+    co = checkout
+    pom = pull origin master
+    # Stolen from GRB:
+    # https://github.com/garybernhardt/dotfiles/blob/master/.gitconfig
+    #
+    # Fancy logging.
+    #   h = head
+    #   hp = head with patch
+    #   r = recent commits, only current branch
+    #   ra = recent commits, all reachable refs
+    #   l = all commits, only current branch
+    #   la = all commits, all reachable refs
+    head = !git r -1
+    h = !git head
+    hp = "!. ~/.githelpers && show_git_head"
+    r = !GIT_NO_PAGER=1 git l -30
+    ra = !git r --all
+    l = "!. ~/.githelpers && pretty_git_log"
+    la = !git l --all
+[core]
+    excludesfile = ~/.global_gitignore
+    editor = vim
+[push]
+	default = current
